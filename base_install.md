@@ -36,7 +36,7 @@ Commands:
 
 6. Format partitions
 ```
-# mkfs -F32 /dev/sda1
+# mkfs.fat -F32 /dev/sda1
 # mkswap /dev/sda2
 # mkfs.ext4 /dev/sda3
 ```
@@ -49,7 +49,7 @@ Commands:
 
 8. Install base
 ```
-# pacstrap /mnt base linux linux-firmware
+# pacstrap /mnt base linux linux-firmware neovim
 ```
 
 9. Configure Fstab
@@ -69,29 +69,67 @@ Commands:
 ```
 
 12. Localization
-```
-# pacman -S nano
-```
 
 Edit /etc/locale.gen and uncomment `en_US.UTF-8 UTF8`
 ```
 # locale-gen
 ```
 
-Create `/etc/locale.conf` with:
 ```
-LANG=en_US.UTF-8
+# echo LANG=en_US.UTF-8 > /etc/locale.conf
 ```
 
 13. Create hostname file
 ```
-# echo HOSTNAME > /etc/hostname
+# echo arch > /etc/hostname
 ```
 
 14. Edit `/etc/hosts`
 ```
 127.0.0.1	localhost
 ::1		localhost
-127.0.1.1	myhostname.localdomain	myhostname
+127.0.1.1	arch.localdomain	arch
 ```
 
+15. Set root password
+
+```
+# passwd
+```
+
+16. Create user and set password
+
+```
+# useradd gabox
+# passwd gabox
+# usermod -aG wheel,audio,video,optical,storage gabox
+```
+
+17. Configure sudo
+
+```
+# pacman -S sudo
+# EDITOR=nvim visudo  # uncomment %wheel ALL=(ALL) ALL
+```
+
+18. Install grub stuff
+
+```
+# pacman -S grub efibootmgr dosfstools os-prober mtools
+```
+
+19. Create and mount boot partition
+
+```
+# mkdir /boot/EFI
+# mount /dev/sda1 /boot/EFI
+```
+
+20. Install grub
+
+```
+# grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
+# grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+21. 
