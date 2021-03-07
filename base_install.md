@@ -100,7 +100,7 @@ Edit /etc/locale.gen and uncomment `en_US.UTF-8 UTF8`
 16. Create user and set password
 
 ```
-# useradd gabox
+# useradd -m gabox
 # passwd gabox
 # usermod -aG wheel,audio,video,optical,storage gabox
 ```
