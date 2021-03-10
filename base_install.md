@@ -43,8 +43,8 @@ Commands:
 
 7. Mount the file system
 ```
-# mount /dev/sda3
 # swapon /dev/sda2
+# mount /dev/sda3 /mnt 
 ```
 
 8. Install base
