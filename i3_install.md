@@ -8,16 +8,11 @@ sudo pacman -S xorg xorg-xinit xorg-xclock xterm
 cp /etc/X11/xinit/xinitrc ~/.xinitrc
 ```
 
-### Test GUI
-```
-startx
-```
-
-### Install font
+### Install i3
 Exit GUI
 
 ```
-sudo pacman -S adobe-source-code-pro-fonts
+sudo pacman -S i3 i3status adobe-source-code-pro-fonts
 ```
 
 ### Modify xinitrc
