@@ -147,3 +147,9 @@ Edit /etc/locale.gen and uncomment `en_US.UTF-8 UTF8`
 # umount -l /mnt
 # reboot
 ```
+
+### Keyboard Layout
+
+```
+localectl set-x11-keymap us pc105 altgr-intl nodeadkeys
+```
