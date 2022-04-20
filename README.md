@@ -1,4 +1,4 @@
-# arch-t480s
+# arch-installation
 Installation notes for Arch Linux on a ThinkPad t480s.
 
 - [Qemu VM](qemu.md)
