@@ -1,5 +1,5 @@
 # arch-installation
-Installation notes for Arch Linux on a ThinkPad t480s.
+Installation notes for Arch Linux on a ThinkPad t480s and MSI GF63 Thin.
 
 - [Qemu VM](qemu.md)
 - [Base Installation](base_install.md)
